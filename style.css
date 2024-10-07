@@ -1,0 +1,66 @@
+:root {
+  --bg-color: #222831;
+  --bg-lighter1: #31363f;
+  --bg-lighter2: #474f5c;
+  --bg-lighter3: #5d6879;
+  --bg-lighter4: #748195;
+  --accent-color: #76abae;
+  --text-color: #eeeeee;
+  --text-light: #D4D4D4;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bg-color);
+}
+
+#container,
+#display,
+#button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#container {
+  width: 350px;
+  height: 500px;
+
+  background-color: var(--bg-lighter1);
+}
+
+#display {
+  height: 20%;
+}
+
+#history,
+#calculation {
+  height: 50%;
+}
+
+#calculation {
+  color: var(--text-color);
+}
+#history {
+  color: var(--text-light)
+}
+
+#button-container {
+  height: 80%;
+}
+
+.row {
+  flex: auto;
+  display: flex;
+}
+
+.number-btn,
+.operator-btn {
+  width: 100%;
+  height: 100%;
+  flex: auto;
+}
