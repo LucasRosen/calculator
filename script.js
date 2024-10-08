@@ -2,6 +2,13 @@ let firstOperand = "";
 let secondOperatnd = "";
 let curOperation = "";
 
+const operators = {
+  add: "+",
+  subtract: "−",
+  multiply: "×",
+  divide: "÷",
+};
+
 // UI
 const display = document.getElementById("calculation");
 const history = document.getElementById("history");
