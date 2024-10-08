@@ -6,7 +6,12 @@
   --bg-lighter4: #748195;
   --accent-color: #76abae;
   --text-color: #eeeeee;
-  --text-light: #D4D4D4;
+  --text-light: #d4d4d4;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--text-color);
 }
 
 body {
@@ -19,6 +24,11 @@ body {
   background-color: var(--bg-color);
 }
 
+button {
+  border: 0;
+  border-radius: 6px;
+}
+
 #container,
 #display,
 #button-container {
@@ -29,6 +39,7 @@ body {
 #container {
   width: 350px;
   height: 500px;
+  padding: 4px;
 
   background-color: var(--bg-lighter1);
 }
@@ -42,20 +53,21 @@ body {
   height: 50%;
 }
 
-#calculation {
-  color: var(--text-color);
-}
 #history {
-  color: var(--text-light)
+  color: var(--text-light);
 }
 
+/* BUTTONS */
 #button-container {
   height: 80%;
+
+  gap: 2px;
 }
 
 .row {
   flex: auto;
   display: flex;
+  gap: 2px;
 }
 
 .number-btn,
@@ -63,4 +75,16 @@ body {
   width: 100%;
   height: 100%;
   flex: auto;
+}
+
+.number-btn {
+  background-color: var(--bg-lighter4);
+}
+
+.operator-btn {
+  background-color: var(--bg-lighter3);
+}
+
+#equals {
+  background-color: var(--accent-color);
 }
