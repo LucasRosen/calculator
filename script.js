@@ -1,4 +1,7 @@
 // UI
+const display = document.getElementById("calculation");
+const history = document.getElementById("history");
+
 const numberButtons = document.querySelectorAll(".number-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
 
@@ -6,10 +9,10 @@ const equalsButton = document.getElementById("equals");
 const clearEntryButton = document.getElementById("clear-entry");
 const clearButton = document.getElementById("clear");
 const delButton = document.getElementById("delete");
-const plusMinusButton = document.getElementById("plus-minus")
+const plusMinusButton = document.getElementById("plus-minus");
 const commaButton = document.getElementById("comma");
 
-equalsButton.addEventListener("click", evaluate)
+equalsButton.addEventListener("click", evaluate);
 clearEntryButton.addEventListener("click", clearEntry);
 clearButton.addEventListener("click", clear);
 delButton.addEventListener("click", deleteNumber);
@@ -37,8 +40,18 @@ function operate(operator, a, b) {
   }
 }
 
-function updateNumber(event) {
-}
+function updateNumber(event) {}
 
-function updateOperator(event) {
-}
+function updateOperator(event) {}
+
+function evaluate() {}
+
+function clearEntry() {}
+
+function clear() {}
+
+function deleteNumber() {}
+
+function plusOrMinus() {}
+
+function appendComma() {}
