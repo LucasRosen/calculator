@@ -41,8 +41,11 @@ button {
   padding: 4px;
 
   background-color: var(--primary-color);
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px var(--tertiary-color);
 }
 
+/* DISPLAY */
 #display {
   height: 20%;
 }
@@ -50,9 +53,21 @@ button {
 #history,
 #calculation {
   height: 50%;
+  padding-bottom: 12px;
+  padding-right: 12px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#calculation {
+  font-size: 36px;
+  font-weight: 700;
 }
 
 #history {
+  font-size: 16px;
   color: var(--text-light);
 }
 
