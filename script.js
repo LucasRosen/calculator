@@ -1,3 +1,7 @@
+let firstOperand = "";
+let secondOperatnd = "";
+let curOperation = "";
+
 // UI
 const display = document.getElementById("calculation");
 const history = document.getElementById("history");
@@ -40,7 +44,17 @@ function operate(operator, a, b) {
   }
 }
 
-function updateNumber(event) {}
+function updateNumber(event) {
+  let num = event.target.textContent;
+  if (num === 0 && display.textContent === "0") {
+    display.textContent = 0;
+  } else if (display.textContent === "0") {
+    display.textContent = "";
+    display.textContent += event.target.textContent;
+  } else {
+    display.textContent += event.target.textContent;
+  }
+}
 
 function updateOperator(event) {}
 
