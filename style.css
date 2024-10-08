@@ -24,6 +24,10 @@ body {
 }
 
 button {
+  width: 100%;
+  height: 100%;
+  flex: auto;
+
   border: 0;
   border-radius: 6px;
   font-size: 20px;
@@ -86,17 +90,12 @@ button {
 }
 
 .number-btn,
-.operator-btn {
-  width: 100%;
-  height: 100%;
-  flex: auto;
-}
-
-.number-btn {
+#comma {
   background-color: var(--secondary-color);
 }
 
-.operator-btn {
+.operator-btn,
+.dark-btn {
   background-color: var(--tertiary-color);
 }
 
