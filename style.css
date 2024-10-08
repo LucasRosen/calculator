@@ -1,10 +1,9 @@
 :root {
-  --bg-color: #222831;
-  --bg-lighter1: #31363f;
-  --bg-lighter2: #474f5c;
-  --bg-lighter3: #5d6879;
-  --bg-lighter4: #748195;
-  --accent-color: #76abae;
+  --bg-color: #1e272e;
+  --primary-color: #32414D;
+  --secondary-color: #808e9b;
+  --tertiary-color: #667582;
+  --accent-color: #ff3f34;
   --text-color: #eeeeee;
   --text-light: #d4d4d4;
 }
@@ -41,7 +40,7 @@ button {
   height: 500px;
   padding: 4px;
 
-  background-color: var(--bg-lighter1);
+  background-color: var(--primary-color);
 }
 
 #display {
@@ -78,11 +77,11 @@ button {
 }
 
 .number-btn {
-  background-color: var(--bg-lighter4);
+  background-color: var(--secondary-color);
 }
 
 .operator-btn {
-  background-color: var(--bg-lighter3);
+  background-color: var(--tertiary-color);
 }
 
 #equals {
