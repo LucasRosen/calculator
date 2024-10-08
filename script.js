@@ -1,5 +1,5 @@
 let firstOperand = "";
-let secondOperatnd = "";
+let secondOperand = "";
 let curOperation = "";
 
 const operators = {
@@ -39,14 +39,16 @@ operatorButtons.forEach((button) =>
 );
 
 function operate(operator, a, b) {
+  a = Number(a);
+  b = Number(b);
   switch (operator) {
-    case "add":
+    case operators.add:
       return a + b;
-    case "subtract":
+    case operators.subtract:
       return a - b;
-    case "multiply":
+    case operators.multiply:
       return a * b;
-    case "divide":
+    case operators.divide:
       return a / b;
   }
 }
@@ -56,14 +58,22 @@ function updateNumber(event) {
   if (num === 0 && display.textContent === "0") {
     display.textContent = 0;
   } else if (display.textContent === "0") {
-    display.textContent = "";
-    display.textContent += event.target.textContent;
+    display.textContent = num;
   } else {
-    display.textContent += event.target.textContent;
+    display.textContent += num;
   }
 }
 
-function updateOperator(event) {}
+function updateOperator(event) {
+  let operator = event.target.textContent;
+  if (!firstOperand) {
+    firstOperand = display.textContent;
+    curOperation = operator;
+  } else if (!secondOperand) {
+    secondOperand = display.textContent;
+    console.log(operate(operator, firstOperand, secondOperand));
+  }
+}
 
 function evaluate() {}
 
