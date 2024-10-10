@@ -106,4 +106,8 @@ function plusOrMinus() {
   }
 }
 
-function appendComma() {}
+function appendComma() {
+  if (!display.textContent.includes(".")) {
+    display.textContent += ".";
+  }
+}
