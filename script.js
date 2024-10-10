@@ -77,9 +77,18 @@ function updateOperator(event) {
 
 function evaluate() {}
 
-function clearEntry() {}
+function clearEntry() {
+  display.textContent = 0;
+}
 
-function clear() {}
+function clear() {
+  firstOperand = "";
+  secondOperand = "";
+  curOperation = "";
+
+  display.textContent = 0;
+  history.textContent = "";
+}
 
 function deleteNumber() {}
 
