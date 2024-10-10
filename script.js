@@ -98,6 +98,12 @@ function deleteNumber() {
   }
 }
 
-function plusOrMinus() {}
+function plusOrMinus() {
+  let curNum = Number(display.textContent);
+  if (curNum !== 0) {
+    curNum = -curNum
+    display.textContent = curNum;
+  }
+}
 
 function appendComma() {}
