@@ -75,7 +75,23 @@ function updateOperator(event) {
   }
 }
 
-function evaluate() {}
+function evaluate() {
+  let answer;
+  if (!firstOperand) {
+    firstOperand = display.textContent;
+    answer = firstOperand;
+  } else if (!secondOperand) {
+    secondOperand = display.textContent;
+    answer = operate(curOperation, firstOperand, secondOperand);
+  }
+
+  history.textContent = `${firstOperand} ${curOperation} ${secondOperand} =`;
+  display.textContent = answer;
+
+  firstOperand = "";
+  secondOperand = "";
+  curOperation = "";
+}
 
 function clearEntry() {
   display.textContent = 0;
@@ -101,7 +117,7 @@ function deleteNumber() {
 function plusOrMinus() {
   let curNum = Number(display.textContent);
   if (curNum !== 0) {
-    curNum = -curNum
+    curNum = -curNum;
     display.textContent = curNum;
   }
 }
