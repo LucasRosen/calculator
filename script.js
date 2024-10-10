@@ -90,7 +90,13 @@ function clear() {
   history.textContent = "";
 }
 
-function deleteNumber() {}
+function deleteNumber() {
+  if (display.textContent.length == 1) {
+    display.textContent = 0;
+  } else {
+    display.textContent = display.textContent.slice(0, -1);
+  }
+}
 
 function plusOrMinus() {}
 
