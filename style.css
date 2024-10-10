@@ -90,7 +90,8 @@ button {
 }
 
 .number-btn,
-#comma {
+#comma,
+#plus-minus {
   background-color: var(--secondary-color);
 }
 
