@@ -2,6 +2,7 @@ let firstOperand = "";
 let secondOperand = "";
 let curOperation = "";
 let shouldClearEntry = false;
+let shouldClear = false;
 
 const operators = {
   add: "+",
@@ -56,7 +57,12 @@ function operate(operator, a, b) {
 
 function updateNumber(event) {
   let num = event.target.textContent;
-  if (shouldClearEntry) {
+
+  if (shouldClear) {
+    clear();
+    display.textContent = num;
+    shouldClear = false;
+  } else if (shouldClearEntry) {
     display.textContent = num;
     shouldClearEntry = false;
   } else if (num === 0 && display.textContent === "0") {
@@ -88,10 +94,6 @@ function updateOperator(event) {
     history.textContent = `${firstOperand} ${curOperation}`;
   }
 
-  console.log("first " + firstOperand)
-  console.log("second " + secondOperand)
-  console.log("operator " + curOperation)
-  console.log("answer " + answer)
   shouldClearEntry = true;
 }
 
@@ -109,7 +111,7 @@ function evaluate() {
 
   history.textContent = `${firstOperand} ${curOperation} ${secondOperand} =`;
   display.textContent = answer;
-  shouldClearEntry = true;
+  shouldClear = true;
   firstOperand = answer;
 }
 
