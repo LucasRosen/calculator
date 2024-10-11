@@ -31,13 +31,14 @@ clearButton.addEventListener("click", clear);
 delButton.addEventListener("click", deleteNumber);
 plusMinusButton.addEventListener("click", plusOrMinus);
 commaButton.addEventListener("click", appendComma);
+document.addEventListener("keydown", parseKeyboard);
 
 numberButtons.forEach((button) =>
-  button.addEventListener("click", updateNumber)
+  button.addEventListener("click", () => updateNumber(button.textContent))
 );
 
 operatorButtons.forEach((button) =>
-  button.addEventListener("click", updateOperator)
+  button.addEventListener("click", () => updateOperator(button.textContent))
 );
 
 function operate(operator, a, b) {
@@ -55,9 +56,7 @@ function operate(operator, a, b) {
   }
 }
 
-function updateNumber(event) {
-  let num = event.target.textContent;
-
+function updateNumber(num) {
   if (shouldClear) {
     clear();
     display.textContent = num;
@@ -74,10 +73,10 @@ function updateNumber(event) {
   }
 }
 
-function updateOperator(event) {
+function updateOperator(operation) {
   let answer;
   let lastOperation = curOperation;
-  curOperation = event.target.textContent;
+  curOperation = operation;
 
   if (!firstOperand) {
     firstOperand = display.textContent;
@@ -147,5 +146,31 @@ function plusOrMinus() {
 function appendComma() {
   if (!display.textContent.includes(".")) {
     display.textContent += ".";
+  }
+}
+
+function parseKeyboard(event) {
+  let key = event.key;
+
+  if (key >= 0 && key <= 9) {
+    updateNumber(key);
+  } else if (key === "+") {
+    updateOperator(operators.add);
+  } else if (key === "-") {
+    updateOperator(operators.subtract);
+  } else if (key === "*") {
+    updateOperator(operators.multiply);
+  } else if (key === "/") {
+    updateOperator(operators.divide);
+  } else if (key === "=" || key === "Enter") {
+    evaluate();
+  } else if (key === "Del") {
+    clearEntry();
+  } else if (key === "Escape") {
+    clear();
+  } else if (key === "Backspace") {
+    deleteNumber();
+  } else if (key === "." || key === ",") {
+    appendComma();
   }
 }
