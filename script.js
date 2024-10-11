@@ -1,6 +1,7 @@
 let firstOperand = "";
 let secondOperand = "";
 let curOperation = "";
+let shouldClearEntry = false;
 
 const operators = {
   add: "+",
@@ -55,7 +56,10 @@ function operate(operator, a, b) {
 
 function updateNumber(event) {
   let num = event.target.textContent;
-  if (num === 0 && display.textContent === "0") {
+  if (shouldClearEntry) {
+    display.textContent = num;
+    shouldClearEntry = false;
+  } else if (num === 0 && display.textContent === "0") {
     display.textContent = 0;
   } else if (display.textContent === "0") {
     display.textContent = num;
@@ -65,14 +69,30 @@ function updateNumber(event) {
 }
 
 function updateOperator(event) {
-  let operator = event.target.textContent;
+  let answer;
+  let lastOperation = curOperation;
+  curOperation = event.target.textContent;
+
   if (!firstOperand) {
     firstOperand = display.textContent;
-    curOperation = operator;
-  } else if (!secondOperand) {
+
+    history.textContent = `${firstOperand} ${curOperation}`;
+  } else if (!shouldClearEntry) {
     secondOperand = display.textContent;
-    console.log(operate(operator, firstOperand, secondOperand));
+    answer = operate(lastOperation, firstOperand, secondOperand);
+
+    firstOperand = answer;
+    secondOperand = "";
+
+    display.textContent = answer;
+    history.textContent = `${firstOperand} ${curOperation}`;
   }
+
+  console.log("first " + firstOperand)
+  console.log("second " + secondOperand)
+  console.log("operator " + curOperation)
+  console.log("answer " + answer)
+  shouldClearEntry = true;
 }
 
 function evaluate() {
@@ -83,14 +103,14 @@ function evaluate() {
   } else if (!secondOperand) {
     secondOperand = display.textContent;
     answer = operate(curOperation, firstOperand, secondOperand);
+  } else {
+    answer = operate(curOperation, firstOperand, secondOperand);
   }
 
   history.textContent = `${firstOperand} ${curOperation} ${secondOperand} =`;
   display.textContent = answer;
-
-  firstOperand = "";
-  secondOperand = "";
-  curOperation = "";
+  shouldClearEntry = true;
+  firstOperand = answer;
 }
 
 function clearEntry() {
