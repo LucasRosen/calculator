@@ -1,9 +1,10 @@
 :root {
   --bg-color: #1e272e;
-  --primary-color: #32414D;
+  --primary-color: #32414d;
   --secondary-color: #808e9b;
   --tertiary-color: #667582;
   --accent-color: #ff3f34;
+  --dark-accent-color: #ff372b;
   --text-color: #eeeeee;
   --text-light: #d4d4d4;
 }
@@ -89,9 +90,7 @@ button {
   gap: 2px;
 }
 
-.number-btn,
-#comma,
-#plus-minus {
+.light-btn {
   background-color: var(--secondary-color);
 }
 
@@ -102,4 +101,32 @@ button {
 
 #equals {
   background-color: var(--accent-color);
+}
+
+/* HOVER */
+.light-btn:hover {
+  background-color: var(--tertiary-color);
+}
+
+.operator-btn:hover,
+.dark-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+#equals:hover {
+  background-color: var(--dark-accent-color);
+}
+
+/* ACTIVE */
+.light-btn:active {
+  box-shadow: inset 0 0 6px var(--secondary-color);
+}
+
+.operator-btn:active,
+.dark-btn:active {
+  box-shadow: inset 0 0 6px var(--tertiary-color);
+}
+
+#equals:active {
+  box-shadow: inset 0 0 6px var(--tertiary-color);
 }
